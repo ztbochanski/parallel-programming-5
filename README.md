@@ -20,7 +20,7 @@ Re-implementation of the C (parallel-programming-1) Monte Carlo simulation using
 	2. Performance vs. Numtrials
 	![[performance_numtrials.svg]]
 	3. Performance vs. Blocksize
-	![[performance_blocksize.svg]]
+	![[[performance_blocksize.svg](https://github.com/ztbochanski/parallel-programming-5/blob/9a2cd36242b8714eed86fa9d5698834316161e4b/performance_blocksize.svg)]]
 	
 4. Patterns in the performance curves
 	- Observation in blocksize scaling: as the blocksize increases the performance improves up to a certain point and then there are diminishing returns.
