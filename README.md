@@ -18,7 +18,7 @@ Re-implementation of the C (parallel-programming-1) Monte Carlo simulation using
 	1. GPU Performance numbers
 	![[Screenshot 2023-05-19 at 16.52.04.png]]
 	2. Performance vs. Numtrials
-	![[performance_numtrials.svg]]
+	![performance_numtrials.svg](https://github.com/ztbochanski/parallel-programming-5/blob/6d609a12a6b0d2ccc6e164e0d668ed62b2f4ec61/performance_numtrials.svg)
 	3. Performance vs. Blocksize
 	![performance_blocksize.svg](https://github.com/ztbochanski/parallel-programming-5/blob/9a2cd36242b8714eed86fa9d5698834316161e4b/performance_blocksize.svg)
 	
