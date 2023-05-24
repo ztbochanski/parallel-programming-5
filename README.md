@@ -1,4 +1,4 @@
-# parallel-programming-5
+# parallel-programming-CUDA
 
 ### Monte Carlo Simulation in CUDA
 Re-implementation of the C (parallel-programming-1) Monte Carlo simulation using CUDA. This simulation determines the probability of a pin fitting into a hole. The underlying algorithm is the same as the first simulation (parallel programming-1) only designed to run on a GPU rather than a CPU. 
