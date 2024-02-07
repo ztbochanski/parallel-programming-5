@@ -1,6 +1,3 @@
-// Monte Carlo simulation of pins-fitting-into-holes-in-a-plate
-
-// system includes
 #include <stdio.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -13,11 +10,9 @@
 // CUDA runtime
 #include <cuda_runtime.h>
 
-// Helper functions and utilities to work with CUDA
 #include "helper_functions.h"
 #include "helper_cuda.h"
 
-// setting the number of trials in the monte carlo simulation:
 #ifndef NUMTRIALS
 #define NUMTRIALS 50000
 #endif
@@ -44,7 +39,6 @@
 #define PinCr 2.0f
 
 // ranges for the random numbers:
-
 #define PROJECT1
 
 #ifdef PROJECT1
@@ -99,8 +93,6 @@ float Ranf(float low, float high)
   return low + t * (high - low);
 }
 
-// call this if you want to force your program to use
-// a different random number sequence every time you run it:
 void TimeOfDaySeed()
 {
   struct tm y2k = {0};
@@ -189,9 +181,9 @@ MonteCarlo(
 
 int main(int argc, char *argv[])
 {
-  TimeOfDaySeed(); // seed the random number generator
+  TimeOfDaySeed(); 
 
-  // better to define these here so that the rand() calls don't get into the thread timing:
+  
   float *hholeaxs = new float[NUMTRIALS];
   float *hholeays = new float[NUMTRIALS];
   float *hholears = new float[NUMTRIALS];
@@ -206,7 +198,6 @@ int main(int argc, char *argv[])
 
   int *hsuccesses = new int[NUMTRIALS];
 
-  // fill the random-value arrays:
   for (int n = 0; n < NUMTRIALS; n++)
   {
     hholeaxs[n] = Ranf(HoleAx - HoleAxPM, HoleAx + HoleAxPM);
@@ -223,16 +214,11 @@ int main(int argc, char *argv[])
   }
 
   // allocate device memory:
-
   float *dholeaxs, *dholeays, *dholears;
   float *dholebxs, *dholebys, *dholebrs;
   float *dholecxs, *dholecys, *dholecrs;
   int *dsuccesses;
 
-  // *********************************
-  // ***** be sure to use NUMTRIALS*sizeof(float) as the number of bytes to malloc, not sizeof(hholeaxs)  *****
-  // (because hholeaxs is a float *, its sizeof is only 8)
-  // *********************************
   cudaMalloc((void **)&dholeaxs, NUMTRIALS * sizeof(float));
   cudaMalloc((void **)&dholeays, NUMTRIALS * sizeof(float));
   cudaMalloc((void **)&dholears, NUMTRIALS * sizeof(float));
